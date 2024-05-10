@@ -1,0 +1,3 @@
+[submodule "itsite/GorElectricTrans"]
+	path = itsite/GorElectricTrans
+	url = https://github.com/Alexey-ink/GorElectricTrans.git

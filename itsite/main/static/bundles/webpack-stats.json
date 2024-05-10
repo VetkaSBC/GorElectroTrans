@@ -1,0 +1,10 @@
+{
+  "assetsByChunkName": {
+    "footer": [
+      "footer.bundle.js"
+    ],
+    "header": [
+      "header.bundle.js"
+    ]
+  }
+}

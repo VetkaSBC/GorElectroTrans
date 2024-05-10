@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Site Title</title>
+    <!-- Загрузка стилей -->
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div id="header"></div>
+    <script src="{% static 'bundles/header.bundle.js' %}"></script>
+    <br><br>
+
+    {% block content %}
+    <h1>Welcome to My Site</h1>
+    <p>This is the main content of the site.</p>
+    {% endblock %}
+
+    <br><br>
+    <br><br>
+    <div id="footer"></div>
+    <script src="{% static 'bundles/footer.bundle.js' %}"></script>
+
+</body>
+</html>
