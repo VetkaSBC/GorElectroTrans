@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+<div class="application-container">
+    <h2>Подача заявления для утверждения отпуска</h2>
+    <div class="application-content">
+        <div class="user-info-form">
+            <div class="user-info">
+                <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+                <p><strong>Имя:</strong> {{ user.first_name }}</p>
+                <p><strong>Отчество:</strong> {{ user.userprofile.patronymic }}</p>
+                <p><strong>Должность:</strong> {{ user.userprofile.position }}</p>
+            </div>
+
+            <h3>Новое заявление</h3>
+            <form method="post" class="application-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-success">Подать заявление на отпуск</button>
+            </form>
+        </div>
+
+        <div class="user-applications">
+            <h3>Ваши заявления</h3>
+            <ul class="application-list">
+                {% for application in applications %}
+                    <li>С {{ application.start_date }} по {{ application.end_date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

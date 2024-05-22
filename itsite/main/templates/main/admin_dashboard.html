@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+    <style>
+        .auth-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .auth-buttons a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .auth-buttons a:hover {
+            background-color: #0056b3;
+        }
+        .spacer {
+            height: 50px;
+        }
+        .content-wrapper {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+    <script src="{% static 'bundles/header.bundle.js' %}"></script>
+    <br><br>
+    <div class="content-wrapper">
+        <h1>Список поданных заявок</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Position</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Leave Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employee_data %}
+                <tr>
+                    <td>{{ employee.username }}</td>
+                    <td>{{ employee.last_name }}</td>
+                    <td>{{ employee.first_name }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.start_date }}</td>
+                    <td>{{ employee.end_date }}</td>
+                    <td>{{ employee.leave_type }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+    <div id="footer"></div>
+    <script src="{% static 'bundles/footer.bundle.js' %}"></script>
+</body>
+</html>
